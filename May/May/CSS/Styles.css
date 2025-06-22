@@ -1,0 +1,320 @@
+/* Сброс встроенных отступов */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+body {
+    background-color: #F5F2EB;
+}
+
+/* Подключение шрифтов */
+@font-face {
+    font-family: 'RalewayMedium';
+    src: url('../Fonts/Raleway-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'RalewayRegular';
+    src: url('../Fonts/Raleway-regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'RalewayBold';
+    src: url('../Fonts/Raleway-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'RalewayLightItalic';
+    src: url('../Fonts/Raleway-LightItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MontserratSB';
+    src: url('../Fonts/MontserratAlternates-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MontserratReg';
+    src: url('../Fonts/MontserratAlternates-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MontserratMedium';
+    src: url('../Fonts/MontserratAlternates-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'RalewaySB';
+    src: url('../Fonts/Raleway-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MontserratBold';
+    src: url('../Fonts/MontserratAlternates-Bold.ttf') format('truetype');
+}
+
+.centering-container {
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    width: 1440px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: RalewayMedium;
+    font-size: 24px;
+}
+
+.logo {
+    height: 100px;
+    font-family: MontserratReg;
+    font-size: 96px;
+}
+
+.header div {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.header div:hover {
+    opacity: 0.7;
+}
+
+.logo:hover,
+.account:hover {
+    opacity: 0.8;
+}
+
+
+.line {
+    height: 1px;
+    background: #000;
+    margin-top: 0px;
+}
+
+.account {
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-container {
+    margin-top: 110px;
+    display: flex;
+    justify-content: center;
+}
+
+.inputfield {
+    width: 570px;
+    height: 75px;
+    border: 1px solid black;
+    border-radius: 20px;
+    font-family: RalewayRegular;
+    font-size: 18px;
+    padding: 20px;
+    margin-top: 4px;
+}
+
+.declarations {
+    font-family: MontserratSB;
+    font-size: 24px;
+}
+
+.descriptions {
+    font-family: MontserratReg;
+    font-size: 20px;
+}
+
+.field-desc {
+    font-family: RalewayMedium;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-top: 30px;
+}
+
+.help {
+    font-family: RalewayLightItalic;
+    font-size: 12px;
+    display: flex;
+    justify-content: right;
+    margin-top: 8px;
+    height: 0px;
+}
+
+.btncontainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.orangebtn {
+    padding: 8px;
+    min-width: 255px;
+    width: fit-content;
+    height: 40px;
+    border: 3px solid #DD9A39;
+    border-radius: 50px;
+    background: #F5F2EB;
+    font-family: RalewayBold;
+    font-size: 20px;
+    color: #DD9A39;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.orangebtn:hover {
+    background-color: #DD9A39;
+    color: white;
+    cursor: pointer;
+}
+
+.blackbtn {
+    padding: 8px;
+    min-width: 255px;
+    width: fit-content;
+    height: 40px;
+    border: 3px solid #000000;
+    border-radius: 50px;
+    background: #F5F2EB;
+    font-family: RalewayBold;
+    font-size: 20px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.blackbtn:hover {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.forgotpassword {
+    font-family: RalewayMedium;
+    font-size: 17px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: right;
+    height: 0px;
+}
+
+.main {
+    width: 1440px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 120px;
+}
+
+.main.mini {
+    width: unset;
+    margin-top: unset;
+}
+
+.main.cart {
+    width: 1300px;
+}
+
+.hi {
+    font-family: MontserratMedium;
+    font-size: 35px;
+}
+
+.card {
+    margin-top: 30px;
+    width: 725px;
+    border: 1px solid black;
+    border-radius: 30px;
+    padding: 25px;
+}
+
+.cardbtncontainer {
+    margin-top: 20px;
+}
+
+.leftblock {
+    margin-right: 50px;
+}
+
+.rightblock {
+    display: flex;
+    align-items: center;
+}
+
+.plannedpast {
+    display: flex;
+    margin-top: 20px;
+    font-family: RalewaySB;
+    font-size: 20px;
+}
+
+.upplate {
+    width: 1300px;
+    height: 56px;
+    background: #F5D5A7;
+    display: flex;
+    justify-content: center;
+}
+
+.menuplate {
+    border: 1px solid black;
+    height: 523px;
+    width: 420px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 13px;
+}
+
+.mkplate{
+    width: 1300px;
+    border: 1px solid;
+    border-radius: 30px;
+    padding: 30px;
+}
+
+.datemk{
+    font-family: MontserratMedium;
+    font-size: 40px;
+}
+
+
+/* Добавлено для скриптов и прочего */
+
+.review-carousel {
+    transition: all 0.3s ease;
+}
+
+.review-text, .review-author {
+    transition: opacity 0.3s ease;
+}
+
+.carousel-arrow {
+    transition: transform 0.2s ease;
+}
+
+.carousel-arrow:hover {
+    transform: scale(1.1);
+}
+
+.carousel-arrow:active {
+    transform: scale(0.95);
+}
+
+

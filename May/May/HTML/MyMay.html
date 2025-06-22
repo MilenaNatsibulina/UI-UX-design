@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Май</title>
+    <link rel="stylesheet" href="../CSS/Styles.css">
+</head>
+
+<body>
+    <!--Шапка-->
+    <div class="centering-container">
+        <div class="header">
+            <div class="logo nav-item" onclick="location.href='MainPage.html'">Май</div>
+            <div class="nav-item" onclick="location.href='MyMay.html'">мой Май</div>
+            <div class="nav-item" onclick="location.href='MyMasterClasses-Planned.html'">мастер-классы</div>
+            <div class="nav-item" onclick="location.href='MyOrders.html'">заказы</div>
+            <div class="nav-item" onclick="location.href='DessertCart.html'">корзина</div>
+            <div class="account nav-item" onclick="location.href='MyAccount.html'">
+                <div></div><img src="../Icons/User(Black).svg" alt="User">личный кабинет
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+
+    <!--Главный блок-->
+    <div class="centering-container">
+        <div class="main">
+            <!--Левый блок-->
+            <div class="leftblock">
+                <!--Приветствие-->
+                <div class="hi" id="hi">Аня, рады видеть вас!</div>
+
+                <!--Карточка верхняя-->
+                <div class="card">
+                    <p class="declarations">Добавьте мастер-класссы в календарь</p>
+                    <p class="descriptions">Добавьте запланированные сессии в свой календарь, чтобы
+                        не пропустить их.</p>
+                    <div class="cardbtncontainer">
+    <div class="orangebtn" onclick="location.href='MyMasterClasses-Planned.html'">Добавить</div>
+</div>
+
+                </div>
+<!--Карточка нижняя-->
+<div class="card">
+    <p class="declarations">Подберите себе свой мастер-класс</p>
+    <p class="descriptions">Добавьте запланированные сессии в свой календарь, чтоб не пропустить их.</p>
+    <div class="cardbtncontainer">
+        <div class="blackbtn" onclick="addToCart({
+            id: 'masterclass1',
+            name: 'Мастер-класс по выпечке',
+            price: 1500,
+            image: '../Icons/MasterClass.png' // заменишь на подходящий
+        })">Добавить в корзину</div>
+    </div>
+</div>
+
+            <!--Правый блок-->
+            <div class="rightblock">
+                <div>
+                    <div class="declarations">Порадуйте ссвоих близких —
+                        подарите сертификат Май</div>
+                    <div class="cardbtncontainer">
+    <div class="orangebtn" onclick="location.href='MyMasterClasses-Planned.html'">Выбрать сертификат</div>
+</div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</body>
+<script src="../JS/auth.js"></script>
+<script src="../JS/csvHandler.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const authSystem = new AuthSystem();
+    
+    // Проверка авторизации
+    if (!authSystem.isAuthenticated()) {
+        return;
+    }
+    else {
+        const user = authSystem.getCurrentUser();
+        const nameElement = document.getElementById('hi');
+        if (nameElement) {
+            var name = user.name + ', рады Вас видеть!';
+            nameElement.textContent = name;
+        }
+    }
+});
+</script>
+</html>

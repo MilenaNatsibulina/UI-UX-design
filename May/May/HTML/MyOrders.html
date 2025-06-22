@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказы</title>
+    <link rel="stylesheet" href="../CSS/Styles.css">
+</head>
+
+<body>
+    <!--Шапка-->
+    <div class="centering-container">
+        <div class="header">
+            <div class="logo nav-item" onclick="location.href='MainPage.html'">Май</div>
+            <div class="nav-item" onclick="location.href='MyMay.html'">мой Май</div>
+            <div class="nav-item" onclick="location.href='MyMasterClasses-Planned.html'">мастер-классы</div>
+            <div class="nav-item" onclick="location.href='MyOrders.html'">заказы</div>
+            <div class="nav-item" onclick="location.href='DessertCart.html'">корзина</div>
+            <div class="account nav-item" onclick="location.href='MyAccount.html'">
+                <div></div><img src="../Icons/User(Black).svg" alt="User">личный кабинет
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+
+    <!--Главный блок-->
+    <div class="centering-container">
+        <div class="main">
+            <!--Левый блок-->
+            <div class="leftblock">
+                <!--Приветствие-->
+                <div class="hi">Мои заказы</div>
+
+                <!--Карточки заказов-->
+                <div class="card">
+                    <p class="declarations">Круассан миндальный</p>
+                    <p class="descriptions">Сумма заказа:  900₽</p>
+                    <p class="descriptions">Количество: 2 шт</p>
+                    <p class="descriptions">14 февраля, с 13:00 до 17:00</p>
+                    <div class="cardbtncontainer">
+                        <div class="orangebtn">Заказать еще раз</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <p class="declarations">Мини-кейк черничный</p>
+                    <p class="descriptions">Сумма заказа:  1500₽</p>
+                    <p class="descriptions">Количество: 3 шт</p>
+                    <p class="descriptions">31 февраля, с 15:00 до 18:00</p>
+                    <div class="cardbtncontainer">
+                        <div class="orangebtn">Заказать еще раз</div>
+                    </div>
+                </div>
+            </div>
+            <!--Правый блок-->
+            <div class="rightblock">
+                <div>
+                    <div class="declarations">Порадуйте ссвоих близких —
+                        подарите сертификат Май</div>
+                    <div class="cardbtncontainer">
+                        <div class="orangebtn">Выбрать сертификат</div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+<script>
+function addToCart(item) {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const existing = cartItems.find(i => i.id === item.id);
+    if (existing) {
+        existing.quantity += item.quantity;
+    } else {
+        cartItems.push(item);
+    }
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    alert("Добавлено в корзину: " + item.name);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".orangebtn");
+
+    buttons.forEach((btn) => {
+        if (btn.textContent.trim() === "Заказать еще раз") {
+            btn.addEventListener("click", function () {
+                const card = btn.closest(".card");
+                const name = card.querySelector(".declarations").textContent.trim();
+                const priceText = card.querySelector(".descriptions").textContent.match(/\d+/g);
+                const quantityText = card.querySelectorAll(".descriptions")[1].textContent.match(/\d+/);
+
+                const item = {
+                    id: name.toLowerCase().replace(/\s+/g, "-"), // делаем id по имени
+                    name: name,
+                    price: parseInt(priceText[0]),
+                    quantity: parseInt(quantityText[0]),
+                    image: "../Icons/Croissant.png" // Заменить на нужную картинку!
+                };
+
+                addToCart(item);
+            });
+        }
+    });
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход</title>
+    <link rel="stylesheet" href="../CSS/Styles.css">
+</head>
+
+<body>
+    <!--Шапка-->
+    <div class="centering-container">
+        <div class="header">
+            <div class="logo nav-item" onclick="location.href='MainPage.html'">Май</div>
+            <div class="nav-item" onclick="location.href='MyMay.html'">мой Май</div>
+            <div class="nav-item" onclick="location.href='MyMasterClasses-Planned.html'">мастер-классы</div>
+            <div class="nav-item" onclick="location.href='MyOrders.html'">заказы</div>
+            <div class="nav-item" onclick="location.href='DessertCart.html'">корзина</div>
+            <div class="account nav-item" onclick="location.href='MyAccount.html'">
+                <div></div><img src="../Icons/User(Black).svg" alt="User">личный кабинет
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+
+    <!--Форма-->
+    <div class="form-container">
+        <form action="..." method="post">
+            <div class="form-group">
+                <div class="field-desc">E-mail</div>
+                <input class="inputfield" type="text" id="username" name="username" required
+                    placeholder="E-mail">
+            </div>
+            <div class="help">*Имя должно быть уникальным и написано латиницей</div>
+
+            <div class="form-group">
+                <div class="field-desc">Пароль</div>
+                <input class="inputfield" type="password" id="password1" name="password" required placeholder="Пароль">
+            </div>
+            <div class="forgotpassword">Забыли пароль?</div>
+
+            <div class="btncontainer">
+                <button class="orangebtn" type="submit">Войти</button>
+            </div>
+            <div style="margin-top: 20px; text-align: center; font-family: 'MontserratReg'; font-size: 14px;">
+    Нет аккаунта?
+    <a href="RegistrationPage.html" style="color: #FF5C00; text-decoration: none; font-weight: bold;">Зарегистрируйтесь</a>
+</div>
+
+        </form>
+    </div>
+
+</body>
+<script src="../JS/auth.js"></script>
+<script src="../JS/csvHandler.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const authSystem = new AuthSystem();
+    
+    // Если пользователь уже авторизован, перенаправляем
+    if (authSystem.isAuthenticated()) {
+        window.location.href = 'MyAccount.html';
+        return;
+    }
+
+    const form = document.querySelector('form') || document.body;
+    
+    // Создаем кнопку входа, если её нет
+    let loginBtn = document.querySelector('#login-btn') || document.querySelector('button');
+
+    loginBtn.addEventListener('click', async function(e) {
+        e.preventDefault();
+        
+        const email = document.querySelector('input[type="email"], input[name*="email"], input[placeholder*="mail"]')?.value || '';
+        const password = document.querySelector('input[type="password"]')?.value || '';
+
+        try {
+            await authSystem.login(email, password);
+            alert('Вход выполнен успешно!');
+            window.location.href = 'MyAccount.html';
+        } catch (error) {
+            alert(`Ошибка входа: ${error.message}`);
+        }
+    });
+});
+</script>
+
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link rel="stylesheet" href="../CSS/Styles.css">
+</head>
+
+<body>
+    <!--Шапка-->
+    <div class="centering-container">
+        <div class="header">
+            <div class="logo nav-item" onclick="location.href='MainPage.html'">Май</div>
+            <div class="nav-item" onclick="location.href='MyMay.html'">мой Май</div>
+            <div class="nav-item" onclick="location.href='MyMasterClasses-Planned.html'">мастер-классы</div>
+            <div class="nav-item" onclick="location.href='MyOrders.html'">заказы</div>
+            <div class="nav-item" onclick="location.href='DessertCart.html'">корзина</div>
+            <div class="account nav-item" onclick="location.href='MyAccount.html'">
+                <div></div><img src="../Icons/User(Black).svg" alt="User">личный кабинет
+            </div>
+        </div>
+    </div>
+
+    <div class="line"></div>
+
+    <!--Плашка с картинкой-->
+    <div class="centering-container" style="margin-top: 70px;">
+        <div class="centering-container" style="width: 1300px;">
+            <img src="../Icons/MainPagePic.png" alt="Pic">
+            <div style="margin-left: 75px;">
+                <div style="font-family: MontserratReg; font-size: 30px;">Каждое утро мы готовим свежие круассаны с хрустящей золотистой 
+                    корочкой и нежнейшей начинкой.<br><br>Специально, чтобы Вы могли почувствовать атмосферу настоящей французской пекарни. </div>
+                <button  class="orangebtn" onclick="location.href='DessertCart.html'">Сделать заказ</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="line" style="margin-top: 70px;"></div>
+
+    <div class="centering-container" style="font-family: 'MontserratReg'; font-size: 40px; margin-top: 22px;">Меню</div>
+
+    <!--Меню-->
+    <div class="centering-container" style="gap: 20px; margin-top: 22px;">
+        <!--Плашка меню-->
+        <div class="menuplate" data-product-id="croissant-classic">
+            <div class="centering-container" style="font-family: 'MontserratBold'; font-size: 43px;">Круассан</div>
+            <div class="centering-container">
+                <img src="../Icons/Croissantmenu.png" alt="Pic">
+            </div>
+            <div class="centering-container" style="font-family: 'MontserratMedium'; font-size: 23px;">Круассан
+                классический</div>
+            <div class="centering-container" style="font-family: MontserratSB; font-size: 35px;">390 ₽</div>
+            <div class="centering-container">
+                <button class="orangebtn" data-product-id="croissant-classic" data-name="Круассан классический" data-price="390">Заказать</button>
+            </div>
+        </div>
+
+        <!--Плашка меню-->
+        <div class="menuplate" data-product-id="croissant-chocolate">
+            <div class="centering-container" style="font-family: 'MontserratBold'; font-size: 43px;">Круассан</div>
+            <div class="centering-container">
+                <img src="../Icons/Croissantmenu.png" alt="Pic">
+            </div>
+            <div class="centering-container" style="font-family: 'MontserratMedium'; font-size: 23px;">Круассан
+                шоколадный</div>
+            <div class="centering-container" style="font-family: MontserratSB; font-size: 35px;">420 ₽</div>
+            <div class="centering-container">
+                <button class="orangebtn" data-product-id="croissant-chocolate" data-name="Круассан шоколадный" data-price="420">Заказать</button>
+            </div>
+        </div>
+
+        <!--Плашка меню-->
+        <div class="menuplate" data-product-id="croissant-almond">
+            <div class="centering-container" style="font-family: 'MontserratBold'; font-size: 43px;">Круассан</div>
+            <div class="centering-container">
+                <img src="../Icons/Croissantmenu.png" alt="Pic">
+            </div>
+            <div class="centering-container" style="font-family: 'MontserratMedium'; font-size: 23px;">Круассан
+                миндальный</div>
+            <div class="centering-container" style="font-family: MontserratSB; font-size: 35px;">450 ₽</div>
+            <div class="centering-container">
+                <button class="orangebtn" data-product-id="croissant-almond" data-name="Круассан миндальный" data-price="450">Заказать</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="centering-container" style="gap: 20px; margin-top: 20px;">
+        <!--Плашка меню-->
+        <div class="menuplate" data-product-id="croissant-ham-cheese">
+            <div class="centering-container" style="font-family: 'MontserratBold'; font-size: 43px;">Круассан</div>
+            <div class="centering-container">
+                <img src="../Icons/Croissantmenu.png" alt="Pic">
+            </div>
+            <div class="centering-container" style="font-family: 'MontserratMedium'; font-size: 23px;">Круассан
+                с ветчиной и сыром</div>
+            <div class="centering-container" style="font-family: MontserratSB; font-size: 35px;">520 ₽</div>
+            <div class="centering-container">
+                <button class="orangebtn" data-product-id="croissant-ham-cheese" data-name="Круассан с ветчиной и сыром" data-price="520">Заказать</button>
+            </div>
+        </div>
+
+        <!--Плашка меню-->
+        <div class="menuplate" data-product-id="croissant-salmon">
+            <div class="centering-container" style="font-family: 'MontserratBold'; font-size: 43px;">Круассан</div>
+            <div class="centering-container">
+                <img src="../Icons/Croissantmenu.png" alt="Pic">
+            </div>
+            <div class="centering-container" style="font-family: 'MontserratMedium'; font-size: 23px;">Круассан
+                с лососем</div>
+            <div class="centering-container" style="font-family: MontserratSB; font-size: 35px;">580 ₽</div>
+            <div class="centering-container">
+                <button class="orangebtn" data-product-id="croissant-salmon" data-name="Круассан с лососем" data-price="580">Заказать</button>
+            </div>
+        </div>
+
+        <!--Плашка меню-->
+        <div class="menuplate" data-product-id="croissant-berry">
+            <div class="centering-container" style="font-family: 'MontserratBold'; font-size: 43px;">Круассан</div>
+            <div class="centering-container">
+                <img src="../Icons/Croissantmenu.png" alt="Pic">
+            </div>
+            <div class="centering-container" style="font-family: 'MontserratMedium'; font-size: 23px;">Круассан
+                с лесными ягодами</div>
+            <div class="centering-container" style="font-family: MontserratSB; font-size: 35px;">380 ₽</div>
+            <div class="centering-container">
+                <button class="orangebtn" data-product-id="croissant-berry" data-name="Круассан с лесными ягодами" data-price="380">Заказать</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="line" style="margin-top: 95px;"></div>
+
+    <!--Что говорят о нас-->
+    <div class="centering-container">
+        <div class="centering-container" style="margin-top: 106px; width: 1300px; justify-content: space-between;">
+            <div>
+                <div style="font-family: MontserratMedium; font-size: 45px;">
+                    Что говорят о нас наши клиенты
+                </div>
+                <div class="review-carousel">
+                    <div class="review-text" style="font-family: MontserratReg; font-size: 20px; margin-top: 43px;" id="review-text">
+                        Круассаны здесь просто невероятные! Хрустящая корочка и нежная начинка - это что-то особенное. Миндальный круассан стал моим фаворитом, обязательно вернусь еще!
+                    </div>
+                    <div class="review-author" style="font-family: MontserratMedium; font-size: 20px; margin-top: 21px;" id="review-author">- Анна</div>
+                </div>
+                <div class="centering-container" style="width: 50px; gap: 20px; margin-top: 50px;">
+                    <img src="../Icons/Arrow - Left.svg" alt="" class="carousel-arrow" id="prev-arrow" style="cursor: pointer;">
+                    <img src="../Icons/Arrow - Right.svg" alt="" class="carousel-arrow" id="next-arrow" style="cursor: pointer;">
+                </div>
+            </div>
+            <div>
+                <img src="../Icons/Croissantmenu.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="line" style="margin-top: 100px;"></div>
+    <div class="centering-container" style="font-family: 'MontserratReg'; font-size: 40px; margin-top: 22px;">
+        Мастер-классы</div>
+<!-- Карточки мастер-классов -->
+<div style="margin-top: 35px; gap: 85px; display: flex; flex-direction: column;">
+
+    <!-- Первая карточка -->
+    <div class="centering-container">
+        <div class="mkplate">
+            <div class="centering-container">
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div class="datemk">15 мая</div>
+                    <div class="declarations">Круассаны. Теория муки, глютена, дрожжей и дрожжевого теста</div>
+                    <div class="descriptions">Продолжительность курса - 150 минут</div>
+                    <div class="datemk" style="font-size: 20px;">
+                        Слова здесь не имеют значения. Все, что вам нужно — это масло, мука и терпение.
+                        Мы сделаем все возможное, чтобы помочь вам с последним, чтобы вы не сдались слишком рано.
+                    </div>
+                    <div style="display: flex; gap: 38px; align-items: center;">
+                        <div class="descriptions" style="font-size: 40px;">5000 ₽</div>
+                        <div class="orangebtn"
+                             data-id="mk-1"
+                             data-name="Круассаны. Теория муки, глютена, дрожжей и дрожжевого теста"
+                             data-price="5000">
+                             Записаться
+                        </div>
+                    </div>
+                </div>
+                <img src="../Icons/Croissantmenu.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- Вторая карточка -->
+    <div class="centering-container">
+        <div class="mkplate">
+            <div class="centering-container">
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div class="datemk">16 мая</div>
+                    <div class="declarations">Круассаны. Теория муки, глютена, дрожжей и дрожжевого теста</div>
+                    <div class="descriptions">Продолжительность курса - 100 минут</div>
+                    <div class="datemk" style="font-size: 20px;">
+                        Слова здесь не имеют значения. Все, что вам нужно — это масло, мука и терпение.
+                        Мы сделаем все возможное, чтобы помочь вам с последним, чтобы вы не сдались слишком рано.
+                    </div>
+                    <div style="display: flex; gap: 38px; align-items: center;">
+                        <div class="descriptions" style="font-size: 40px;">3000 ₽</div>
+                        <div class="orangebtn"
+                             data-id="mk-2"
+                             data-name="Круассаны. Теория муки, глютена, дрожжей и дрожжевого теста"
+                             data-price="3000">
+                             Записаться
+                        </div>
+                    </div>
+                </div>
+                <img src="../Icons/Croissantmenu.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- Третья карточка -->
+    <div class="centering-container">
+        <div class="mkplate">
+            <div class="centering-container">
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div class="datemk">17 мая</div>
+                    <div class="declarations">Круассаны. Теория муки, глютена, дрожжей и дрожжевого теста</div>
+                    <div class="descriptions">Продолжительность курса - 120 минут</div>
+                    <div class="datemk" style="font-size: 20px;">
+                        Слова здесь не имеют значения. Все, что вам нужно — это масло, мука и терпение.
+                        Мы сделаем все возможное, чтобы помочь вам с последним, чтобы вы не сдались слишком рано.
+                    </div>
+                    <div style="display: flex; gap: 38px; align-items: center;">
+                        <div class="descriptions" style="font-size: 40px;">3500 ₽</div>
+                        <div class="orangebtn"
+                             data-id="mk-3"
+                             data-name="Круассаны. Теория муки, глютена, дрожжей и дрожжевого теста"
+                             data-price="30">
+                             Записаться
+                        </div>
+                    </div>
+                </div>
+                <img src="../Icons/Croissantmenu.png" alt="">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Кнопка "Узнать больше" -->
+<div class="centering-container" style="margin-top: 22px;">
+    <button class="blackbtn">Узнать больше</button>
+</div>
+
+    <!--Футер-->
+    <div class="centering-container" style="margin-top: 50px; height: 252px; background: #000; align-items: center;">
+        <div>
+            <div class="header" style="background-color: black; color: white;">
+            <div class="logo">Май</div>
+            <div class="centering-container" style="width: 300px; justify-content: space-between;">
+                <div>Telegram</div>
+                <div>*Instagram</div>
+            </div>
+        </div>
+        <div class="line" style="background-color: white;"></div>
+        </div>
+    </div>
+
+
+
+    <script>
+function addToCart(item) {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const existing = cartItems.find(i => i.id === item.id);
+    if (existing) {
+        existing.quantity += item.quantity;
+    } else {
+        cartItems.push(item);
+    }
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    alert("Добавлено в корзину: " + item.name);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Обработка кнопок "Заказать" из главной страницы
+    const orderButtons = document.querySelectorAll("button.orangebtn[data-product-id]");
+    orderButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const id = btn.dataset.productId;
+            const name = btn.dataset.name;
+            const price = parseInt(btn.dataset.price);
+            const item = {
+                id,
+                name,
+                price,
+                quantity: 1,
+                image: "../Icons/Croissantmenu.png" // можно заменить через data-атрибут
+            };
+            addToCart(item);
+        });
+    });
+// Обработка кнопок "Записаться" для мастер-классов
+document.querySelectorAll(".orangebtn[data-id]").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const item = {
+            id: btn.dataset.id,
+            name: btn.dataset.name,
+            price: parseInt(btn.dataset.price),
+            quantity: 1,
+            image: "../Icons/Croissantmenu.png",
+            isMasterClass: true // флаг для разделения в корзине
+        };
+        addToCart(item);
+    });
+});
+
+    // Обработка кнопок "Заказать еще раз" из истории заказов
+    const repeatButtons = document.querySelectorAll(".orangebtn:not([data-product-id])");
+    repeatButtons.forEach(btn => {
+        if (btn.textContent.trim() === "Заказать еще раз") {
+            btn.addEventListener("click", () => {
+                const card = btn.closest(".card");
+                const name = card.querySelector(".declarations").textContent.trim();
+                const priceMatch = card.querySelector(".descriptions").textContent.match(/\d+/g);
+                const quantityMatch = card.querySelectorAll(".descriptions")[1].textContent.match(/\d+/);
+
+                const item = {
+                    id: name.toLowerCase().replace(/\s+/g, "-"),
+                    name: name,
+                    price: parseInt(priceMatch[0]),
+                    quantity: parseInt(quantityMatch[0]),
+                    image: "../Icons/Croissantmenu.png" // можно улучшить при необходимости
+                };
+                addToCart(item);
+            });
+        }
+    });
+});
+</script>
+
+</body>
+
+<script>
+    // Карусель отзывов
+    document.addEventListener('DOMContentLoaded', function() {
+        const reviews = [
+            {
+                text: "Круассаны здесь просто невероятные! Хрустящая корочка и нежная начинка - это что-то особенное. Миндальный круассан стал моим фаворитом, обязательно вернусь еще!",
+                author: "- Анна"
+            },
+            {
+                text: "Маффины просто тают во рту! Черничный маффин с утренним кофе - идеальное начало дня. Спасибо за качество и внимание к деталям!",
+                author: "- Михаил"
+            },
+            {
+                text: "Банановые маффины превзошли все ожидания! Мягкие, ароматные, с натуральным вкусом. Дети в восторге, теперь это наше любимое место для сладостей.",
+                author: "- Елена"
+            },
+            {
+                text: "Шоколадные круассаны - это произведение искусства! Каждый кусочек наполнен настоящим бельгийским шоколадом. Рекомендую всем сладкоежкам!",
+                author: "- Дмитрий"
+            },
+            {
+                text: "Классические круассаны напоминают мне Париж! Такие же воздушные и ароматные. Персонал очень дружелюбный, атмосфера уютная.",
+                author: "- Алина"
+            },
+            {
+                text: "Круассан с ветчиной и сыром - отличный выбор для сытного завтрака! Свежие ингредиенты, идеальное сочетание вкусов. Буду заказывать еще!",
+                author: "- Никита"
+            }
+        ];
+
+        let currentReviewIndex = 0;
+        const reviewText = document.getElementById('review-text');
+        const reviewAuthor = document.getElementById('review-author');
+        const prevArrow = document.getElementById('prev-arrow');
+        const nextArrow = document.getElementById('next-arrow');
+
+        function updateReview() {
+            reviewText.style.opacity = '0';
+            reviewAuthor.style.opacity = '0';
+            
+            setTimeout(() => {
+                reviewText.textContent = reviews[currentReviewIndex].text;
+                reviewAuthor.textContent = reviews[currentReviewIndex].author;
+                reviewText.style.opacity = '1';
+                reviewAuthor.style.opacity = '1';
+            }, 300);
+        }
+
+        function nextReview() {
+            currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
+            updateReview();
+        }
+
+        function prevReview() {
+            currentReviewIndex = (currentReviewIndex - 1 + reviews.length) % reviews.length;
+            updateReview();
+        }
+
+        // Обработчики событий для стрелок
+        nextArrow.addEventListener('click', nextReview);
+        prevArrow.addEventListener('click', prevReview);
+
+        // Инициализация первого отзыва
+        updateReview();
+    });
+
+</script>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="../CSS/Styles.css">
+</head>
+
+<body>
+    <!--Шапка-->
+    <div class="centering-container">
+        <div class="header">
+            <div class="logo nav-item" onclick="location.href='MainPage.html'">Май</div>
+            <div class="nav-item" onclick="location.href='MyMay.html'">мой Май</div>
+            <div class="nav-item" onclick="location.href='MyMasterClasses-Planned.html'">мастер-классы</div>
+            <div class="nav-item" onclick="location.href='MyOrders.html'">заказы</div>
+            <div class="nav-item" onclick="location.href='DessertCart.html'">корзина</div>
+            <div class="account nav-item" onclick="location.href='MyAccount.html'">
+                <div></div><img src="../Icons/User(Black).svg" alt="User">личный кабинет
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+
+    <!--Главный блок-->
+    <div class="centering-container" style="margin-top: 52px;">
+        <div>
+            <div class="line" style="width: 1300px;"></div>
+            <div class="upplate">
+                <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
+                    <div class="hi">Товар</div>
+                </div>
+                <div style="width: 50%; display: flex; justify-content: center; align-items: center">
+                    <div class="hi">Цена</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <div class="centering-container">
+    <div class="cart-items-container" style="display: flex; flex-direction: column; gap: 20px; width: 100%; align-items: center;">
+        <!-- Сюда будут добавляться товары из localStorage -->
+    </div>
+</div>
+<div class="centering-container" style="margin-top: 40px;">
+  <div style="font-family: 'MontserratReg'; font-size: 32px; margin-bottom: 20px;"></div>
+  <div class="cart-mk-container" style="display: flex; flex-direction: column; gap: 20px; width: 100%; align-items: center;">
+    <!-- Здесь будут мастер-классы -->
+  </div>
+</div>
+    <div class="centering-container">
+        <div class="main cart" style="margin-top: 0px;">
+            <!--Форма-->
+            <div class="form-container">
+                <form action="..." method="post">
+                    <div class="hi">Детали заказа</div>
+                    <div class="form-group">
+                        <div class="field-desc">Время</div>
+                        <select class="inputfield" id="time" name="time">
+                            <option value="" disabled selected>Выберите время</option>
+                            <option value="moscow">10:00-13:00</option>
+                            <option value="spb">13:00-15:00</option>
+                            <option value="kazan">15:00-18:00</option>
+                            <option value="sochi">18:00-21:00</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="field-desc">Дата</div>
+                        <select class="inputfield" id="time" name="time">
+                            <option value="" disabled selected>Выберите дату</option>
+                            <option value="moscow">Дата 1</option>
+                            <option value="spb">Дата 2</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="field-desc">Телефон получателя</div>
+                        <input class="inputfield" type="text" id="username" name="username" required
+                            placeholder="+7 (999) 999-99-99">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="field-desc">Адрес доставки</div>
+                        <input class="inputfield" type="text" id="adress" name="adr" required
+                            placeholder="Введите адрес">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="field-desc">Комментарий к заказу</div>
+                        <input class="inputfield" type="text" id="comm" name="comm" required
+                            placeholder="Введите комментарий">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="centering-container">
+        <div class="line" style="margin-top: 63px;"></div>
+        <div class="centering-container" style="margin-top: 52px;">
+            <div>
+                <div class="line" style="width: 1300px;"></div>
+
+                <div class="upplate" style="background-color: inherit;">
+                    <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
+                    </div>
+                    <div style="width: 50%; display: flex; justify-content: center;">
+                        <div>
+                            <div class="hi" id="cart-total">Итого: 0₽</div>
+                            <div class="btncontainer" style="margin-top: 16px;">
+                                <button class="orangebtn" type="submit">Заказать</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 100px;"></div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const cartContainer = document.querySelector(".cart-items-container");
+    const mkContainer = document.querySelector(".cart-mk-container");
+    const totalBlock = document.getElementById("cart-total");
+
+    if (!cartItems.length) {
+        cartContainer.innerHTML = "<div style='font-family: MontserratReg; font-size: 20px;'>Корзина пуста</div>";
+        mkContainer.innerHTML = "";
+        totalBlock.textContent = `Итого: 0₽`;
+        return;
+    }
+
+    let total = 0;
+
+    // Сортируем товары на обычные и мастер-классы (например, по типу или id)
+    const products = cartItems.filter(i => !i.isMasterClass);
+    const masterClasses = cartItems.filter(i => i.isMasterClass);
+
+    // Рендер товаров
+    if (products.length === 0) {
+        cartContainer.innerHTML = "<div style='font-family: MontserratReg; font-size: 20px;'>Товары отсутствуют</div>";
+    } else {
+        cartContainer.innerHTML = ""; // очистка перед добавлением
+        products.forEach(item => {
+            const itemBlock = document.createElement("div");
+            itemBlock.className = "main cart";
+            itemBlock.style.marginTop = "0";
+            itemBlock.innerHTML = `
+                <div style="display: flex; align-items: center; width: 50%;">
+                    <div><img src="${item.image || '../Icons/Croissant.png'}" alt="Product"></div>
+                    <div style="margin-left: 10px;">
+                        <div class="hi">${item.name}</div>
+                        <div style="display: flex; width: 62px; justify-content: space-between; margin-top: 13px;">
+                            <img src="../Icons/minus-cirlce.svg" alt="-" style="cursor:pointer;" onclick="updateQuantity('${item.id}', -1)">
+                            <div style="font-family: MontserratMedium; font-size: 15px;">${item.quantity}</div>
+                            <img src="../Icons/add-circle.svg" alt="+" style="cursor:pointer;" onclick="updateQuantity('${item.id}', 1)">
+                        </div>
+                    </div>
+                </div>
+                <div class="rightblock" style="width: 50%; justify-content: center;">
+                    <div class="hi" style="width: 90%; text-align: center;">${item.price * item.quantity}₽</div>
+                    <img src="../Icons/close-small.svg" alt="Удалить" style="cursor:pointer;" onclick="removeItem('${item.id}')">
+                </div>
+            `;
+            cartContainer.appendChild(itemBlock);
+            total += item.price * item.quantity;
+        });
+    }
+
+    // Рендер мастер-классов
+    if (masterClasses.length === 0) {
+        mkContainer.innerHTML = "<div style='font-family: MontserratReg; font-size: 20px;'>Мастер-классы отсутствуют</div>";
+    } else {
+        mkContainer.innerHTML = ""; // очистка
+        masterClasses.forEach(item => {
+            const itemBlock = document.createElement("div");
+            itemBlock.className = "main cart";
+            itemBlock.style.marginTop = "0";
+            itemBlock.innerHTML = `
+                <div style="display: flex; align-items: center; width: 50%;">
+                    <div><img src="${item.image || '../Icons/Croissantmenu.png'}" alt="MasterClass"></div>
+                    <div style="margin-left: 10px;">
+                        <div class="hi">${item.name}</div>
+                        <div style="font-family: MontserratMedium; font-size: 15px;">${item.quantity} шт.</div>
+                    </div>
+                </div>
+                <div class="rightblock" style="width: 50%; justify-content: center;">
+                    <div class="hi" style="width: 90%; text-align: center;">${item.price * item.quantity}₽</div>
+                    <img src="../Icons/close-small.svg" alt="Удалить" style="cursor:pointer;" onclick="removeItem('${item.id}')">
+                </div>
+            `;
+            mkContainer.appendChild(itemBlock);
+            total += item.price * item.quantity;
+        });
+    }
+
+    totalBlock.textContent = `Итого: ${total}₽`;
+});
+
+</script>
+
+</body>
+<script>
+function addToCart(item) {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const existing = cartItems.find(i => i.id === item.id);
+    if (existing) {
+        existing.quantity += item.quantity;
+    } else {
+        cartItems.push(item);
+    }
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    alert("Добавлено в корзину: " + item.name);
+}
+
+</script>
+<script>
+function removeItem(id) {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const updatedCart = cartItems.filter(item => item.id !== id);
+    localStorage.setItem("cartItems", JSON.stringify(updatedCart));
+    location.reload(); // Обновляем страницу, чтобы перерендерить корзину
+}
+</script>
+<script>
+function updateQuantity(id, change) {
+    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const item = cartItems.find(i => i.id === id);
+    if (item) {
+        item.quantity += change;
+        if (item.quantity <= 0) {
+            removeItem(id);
+        } else {
+            localStorage.setItem("cartItems", JSON.stringify(cartItems));
+            location.reload();
+        }
+    }
+}
+</script>
+
+</html>
